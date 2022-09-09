@@ -4,7 +4,7 @@ from pathlib import Path
 import PySimpleGUI as sg
 from docxtpl import DocxTemplate
 
-document_path = Path(__file__).parent / "vendor-contract.docx"
+document_path = Path(__file__).parent/"vendor-contract.docx"
 doc = DocxTemplate(document_path)
 
 today = datetime.datetime.today()
@@ -33,7 +33,7 @@ while True:
 
         # Render the template, save new word document & inform user
         doc.render(values)
-        output_path = Path(__file__).parent / f"{values['VENDOR']}-contract.docx"
+        output_path = Path(__file__).parent/f"{values['VENDOR']}-contract.docx"
         doc.save(output_path)
         sg.popup("File saved", f"File has been saved here: {output_path}")
 
